@@ -19,8 +19,8 @@ require 'avro_turf/confluent_schema_registry'
 
 module Fluent
   module Plugin
-    class AvroturfConfluentFormatter < Fluent::Plugin::Formatter
-      Fluent::Plugin.register_formatter("avroturf_confluent", self)
+    class AvroturfSerializer < Fluent::Plugin::Formatter
+      Fluent::Plugin.register_formatter("avroturf_serializer", self)
 
         config_param :schema_registry_url, :string, :default => nil, :desc => "URL of Confluent Schema Registry"
 	config_param :schema_registry_api_key, :string, :default => nil, :secret => true, :desc => "API key of Confluent Schema Registry"
@@ -28,16 +28,13 @@ module Fluent
 
         config_param :namespace, :string, :default => nil, :desc =>  "The namespace of schema"
         config_param :schema_subject, :string, :default => nil, :desc => "The name of subject stored in Schema Registry"
-        config_param :schema_version, :integer, :default => nil, :desc => "The version of subject stored in Schema Registry"
+        config_param :schema_version, :string, :default => "latest", :desc => "The version of subject stored in Schema Registry"
 
 	config_param :schemas_path, :string, :default => "./schemas/", :desc => "The directory path where Avro schema files(.avsc) are stored"
 	config_param :schema_name, :string, :default => nil, :desc => "The name of schemas stored in Avro schema files"
 
         config_param :schema_id, :integer, :default => nil, :desc => "The ID of schemas stored in Schema Registry"
         config_param :validate, :bool, :default => "false", :desc => "Validate the message during encoding process(default: false)"
-
-	config_param :discard_encoding_failed, :bool, :default => false
-        config_param :emit_invalid_record_to_error, :bool, :default => true
 
       def configure(conf)
         super
@@ -54,16 +51,14 @@ module Fluent
       end
 
       def format(tag, time, record)
-	begin
-	  encoded_data = @avro.encode(record, subject: @schema_subject, version: @schema_version, schema_name: @schema_name, schema_id: @schema_id.to_i, validate: @validate)
-	rescue Exception => e
-	  if discard_encoding_failed
-            log.warn "Data encoding failed, Discard events", :errors=>e.to_s, :error_class => e.class.to_s, :tag => tag
-          else
-	    log.warn "Data encoding failed", :errors=>e.to_s, :error_class => e.class.to_s, :tag => tag if emit_invalid_record_to_error
-            raise e
-	  end
-        end
+        encoded_data = @avro.encode(
+          record, 
+	  subject: @schema_subject, 
+	  version: @schema_version, 
+	  schema_name: @schema_name, 
+	  schema_id: @schema_id, 
+	  validate: @validate
+	)
       end
     end
   end
