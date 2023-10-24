@@ -7,15 +7,15 @@ Schema Registry manages and stores data schemas that are shared between differen
 ### RubyGems
 For vanila Fluentd :
 ```
-$ gem install fluent-plugin-avroturf-confluent
+$ gem install fluent-plugin-avroturf_confluent
 ```
 For td-agent v4 or later (scheduled EoL on Dec 2023) :
 ```
-$ /opt/td-agent/bin/fluent-gem install fluent-plugin-avroturf-confluent
+$ /opt/td-agent/bin/fluent-gem install fluent-plugin-avroturf_confluent
 ```
 For fluent-package v5 or later :
 ```
-$ /opt/fluent/bin/fluent-gem install fluent-plugin-avroturf-confluent
+$ /opt/fluent/bin/fluent-gem install fluent-plugin-avroturf_confluent
 ```
 
 ## Configuration
