@@ -32,6 +32,7 @@ The options below are required to configure based on schema fetching patterns.
 - `schemas_path` : Path of directory which stores avsc files (default: ./schemas/)
 - `schema_name` : Name of schema  (default: nil)
 - `validate` : validate a message before serializing it.  (default: false)
+- `format_as_json_when_encode_failed` : Format as JSON when encode process failed. (defalut: false)
 
 ### Configuration Patterns
 There are 3 configuration patterns to fetch schema.
