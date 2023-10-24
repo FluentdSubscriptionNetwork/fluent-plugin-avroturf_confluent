@@ -1,6 +1,6 @@
-# fluent-plugin-avroturf-confluent
+# fluent-plugin-avroturf_confluent
 ## Overview
-Schema Registry manages and stores data schemas that are shared between different services. It is commonly used in Apache Kafka to ensure that data exchanged among different producers and consumers adheres to a predefined schema or data structure. `fluent-plugin-avroturf-confluent` is formatter plugin developed for `fluent-plugin-kafka/out_rdkafka2` to serialize messages in key-value pairs format into Avro format before shipping messages to Kafka brokers. The plugin utilizes [AvroTurf](https://github.com/dasch/avro_turf) library to register and retrieve schemas from the Schema Registry provided by Confluent Cloud, and then serialize key-value pairs into avro format.
+Schema Registry manages and stores data schemas that are shared between different services. It is commonly used in Apache Kafka to ensure that data exchanged among different producers and consumers adheres to a predefined schema or data structure. `fluent-plugin-avroturf_confluent` is formatter plugin developed for `fluent-plugin-kafka/out_rdkafka2` to serialize messages in key-value pairs format into Avro format before shipping messages to Kafka brokers. The plugin utilizes [AvroTurf](https://github.com/dasch/avro_turf) library to register and retrieve schemas from the Schema Registry provided by Confluent Cloud, and then serialize key-value pairs into avro format.
 
 ## Installation
 
