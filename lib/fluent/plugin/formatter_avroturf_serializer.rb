@@ -53,6 +53,10 @@ module Fluent
         if @format_as_json_when_encode_failed
           @dump_proc = Oj.method(:dump)
         end
+        
+        if @schema_subject 
+	  raise Fluent::ConfigError, "schema_version is required when fetching schema with schema_subject" if @schema_version == nil
+        end
       end
 
       def format(tag, time, record)
