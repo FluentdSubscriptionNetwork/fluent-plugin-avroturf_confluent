@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{Fluentd formatter plugin for Confluent Schema Registry}
   spec.description   = %q{fluent-plugin-avroturf-confluent is formatter plugin developed for fluent-plugin-kafka/out_rdkafka2 to serialize messages in key-value pairs format into Avro format before shipping messages to Kafka brokers.}
-  spec.homepage      = "https://github.com/kubotat/fluent-plugin-avroturf_confluent"
+  spec.homepage      = "https://github.com/FluentdSubscriptionNetwork/fluent-plugin-avroturf_confluent"
   spec.license       = "Apache-2.0"
 
   test_files, files  = `git ls-files -z`.split("\x0").partition do |f|
