@@ -67,7 +67,8 @@ module Fluent
 	    version: @schema_version, 
 	    schema_name: @schema_name, 
 	    schema_id: @schema_id, 
-	    validate: @validate
+	    validate: @validate,
+            namespace: @namespace
 	  )
         rescue => e
           if @format_as_json_when_encode_failed
