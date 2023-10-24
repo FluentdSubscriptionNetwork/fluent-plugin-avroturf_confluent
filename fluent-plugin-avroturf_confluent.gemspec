@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.email   = ["tkubota@ctc-america.com"]
 
   spec.summary       = %q{Fluentd formatter plugin for Confluent Schema Registry}
-  spec.description   = %q{Fluentd formatter plugin for Confluent Schema Registry}
-  spec.homepage      = "https://github.com/kubotat/fluent-plugin-avroturf_confluent"
+  spec.description   = %q{fluent-plugin-avroturf_confluent is formatter plugin developed for fluent-plugin-kafka/out_rdkafka2 to serialize messages in key-value pairs format into Avro format before shipping messages to Kafka brokers.}
+  spec.homepage      = "https://github.com/FluentdSubscriptionNetwork/fluent-plugin-avroturf_confluent"
   spec.license       = "Apache-2.0"
 
   test_files, files  = `git ls-files -z`.split("\x0").partition do |f|
@@ -24,5 +24,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", "~> 12.0"
   spec.add_development_dependency "test-unit", "~> 3.0"
   spec.add_development_dependency 'avro_turf', '~> 1.14', '>= 1.14.0'
-  spec.add_runtime_dependency "fluentd", [">= 1.13", "< 2"]
+  spec.add_runtime_dependency "fluentd", [">= 1.11", "< 2"]
 end
