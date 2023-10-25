@@ -207,7 +207,7 @@ sr_url=ENV["SCHEMA_REGISTRY_URL"]
 sr_api_key=ENV["SCHEMA_REGISTRY_API_KEY"]
 sr_api_secret=ENV["SCHEMA_REGISTRY_API_SECRET"]
 
-topic = "topic-order-01"
+topic = "topic-test-01"
 
 config = {
         :"bootstrap.servers" => bootstrap_servers,
